@@ -1,25 +1,10 @@
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-import { access, writeFile } from 'fs/promises';
+import { join } from 'path';
+import { writeFile } from 'fs/promises';
+import { currentDirectoryPath, isExistingPath } from './utils.js'
 
 
 const content = 'I am fresh and young';
 
-const currentDirectoryPath = () => {
-    return dirname(fileURLToPath(import.meta.url));
-}
-
-const isExistingPath = async (filePath) => {
-    try {
-        await access(filePath);
-        return true;
-    } catch (err) {
-        if (err.code === 'ENOENT') {
-            return false;
-        }
-        throw err;
-    }
-};
 
 const create = async () => {
     let currentDir = currentDirectoryPath();
