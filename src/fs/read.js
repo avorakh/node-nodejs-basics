@@ -1,11 +1,10 @@
 import { join } from 'path';
 import { readFile } from 'fs/promises';
-import { currentDirectoryPath, isExistingPath } from './utils.js'
+import { isExistingPath } from './utils.js'
 
 
 const read = async () => {
-    let currentDir = currentDirectoryPath();
-    let filePath = join(currentDir, 'files', 'fileToRead.txt');
+    let filePath = join(import.meta.dirname, 'files', 'fileToRead.txt');
 
     let isExistingFile = await isExistingPath(filePath);
 

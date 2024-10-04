@@ -1,14 +1,13 @@
 import { join } from 'path';
 import { writeFile } from 'fs/promises';
-import { currentDirectoryPath, isExistingPath } from './utils.js'
+import { isExistingPath } from './utils.js'
 
 
 const content = 'I am fresh and young';
 
 
 const create = async () => {
-    let currentDir = currentDirectoryPath();
-    let filePath = join(currentDir, 'files', 'fresh.txt');
+    let filePath = join(import.meta.dirname, 'files', 'fresh.txt');
 
     let isExistingFile = await isExistingPath(filePath);
 

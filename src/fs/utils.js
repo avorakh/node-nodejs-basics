@@ -1,10 +1,4 @@
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
 import { access } from 'fs/promises';
-
-const currentDirectoryPath = () => {
-    return dirname(fileURLToPath(import.meta.url));
-};
 
 const isExistingPath = async (filePath) => {
     try {
@@ -18,4 +12,4 @@ const isExistingPath = async (filePath) => {
     }
 };
 
-export { currentDirectoryPath, isExistingPath };
+export { isExistingPath };

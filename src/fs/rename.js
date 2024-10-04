@@ -1,13 +1,11 @@
 import { join } from 'path';
 import { rename as rnm } from 'fs/promises';
-import { currentDirectoryPath, isExistingPath } from './utils.js'
+import { isExistingPath } from './utils.js'
 
 
 const rename = async () => {
-    let currentDir = currentDirectoryPath();
-
-    let oldFilePath = join(currentDir, 'files', 'wrongFilename.txt');
-    let newFilePath = join(currentDir, 'files', 'properFilename.md');
+    let oldFilePath = join(import.meta.dirname, 'files', 'wrongFilename.txt');
+    let newFilePath = join(import.meta.dirname, 'files', 'properFilename.md');
 
     let isOldFilePathExist = await isExistingPath(oldFilePath);
     let isNewFilePathExist = await isExistingPath(newFilePath);

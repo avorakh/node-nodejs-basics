@@ -1,11 +1,10 @@
 import { join } from 'path';
 import { readdir } from 'fs/promises';
-import { currentDirectoryPath, isExistingPath } from './utils.js'
+import { isExistingPath } from './utils.js'
 
 
 const list = async () => {
-    let currentDir = currentDirectoryPath();
-    let fileSFolderPath = join(currentDir, 'files');
+    let fileSFolderPath = join(import.meta.dirname, 'files');
 
     let isExistingFFolder = await isExistingPath(fileSFolderPath);
 

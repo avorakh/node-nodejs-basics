@@ -1,14 +1,12 @@
 import { join } from 'path';
 import { mkdir, cp } from 'fs/promises';
-import { currentDirectoryPath, isExistingPath } from './utils.js'
+import { isExistingPath } from './utils.js'
 
 
 const copy = async () => {
-    let currentDir = currentDirectoryPath();
+    let srcDir = join(import.meta.dirname, 'files');
+    let destDir = join(import.meta.dirname, 'files_copy');
 
-    let srcDir = join(currentDir, 'files');
-    let destDir = join(currentDir, 'files_copy');
-    
     let isSrcDirExist = await isExistingPath(srcDir);
     let isDestDirExist = await isExistingPath(destDir);
 

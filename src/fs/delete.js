@@ -1,11 +1,10 @@
 import { join } from 'path';
 import { rm } from 'fs/promises';
-import { currentDirectoryPath, isExistingPath } from './utils.js'
+import { isExistingPath } from './utils.js'
 
 
 const remove = async () => {
-    let currentDir = currentDirectoryPath();
-    let filePath = join(currentDir, 'files', 'fileToRemove.txt');
+    let filePath = join(import.meta.dirname, 'files', 'fileToRemove.txt');
 
     let isExistingFile = await isExistingPath(filePath);
 
