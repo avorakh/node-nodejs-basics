@@ -1,6 +1,6 @@
 import { createHash } from 'crypto';
 import { join } from 'path';
-import { open } from 'node:fs/promises';
+import { open } from 'fs/promises';
 
 
 const calculateHash = async () => {
