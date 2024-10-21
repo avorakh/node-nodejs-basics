@@ -1,5 +1,18 @@
+import { join } from 'path';
+import { rm } from 'fs/promises';
+import { isExistingPath } from './utils.js'
+
+
 const remove = async () => {
-    // Write your code here 
+    let filePath = join(import.meta.dirname, 'files', 'fileToRemove.txt');
+
+    let isExistingFile = await isExistingPath(filePath);
+
+    if (isExistingFile) {
+        await rm(filePath);
+    } else {
+        throw new Error('FS operation failed');
+    }
 };
 
 await remove();
